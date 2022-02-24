@@ -30,7 +30,7 @@ const ReactionSchema = new Schema ({
 //This is a model that takes the reaction data and stores it in a key called reactions
 const ThoughtSchema = new Schema ({
     thoughtText: {
-        tyoe: String,
+        type: String,
         required: true,
         maxlength: 280,
         minlength: 1
