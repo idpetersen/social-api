@@ -1,4 +1,4 @@
-//Get all da bad bois together
+//Combining models together
 
 const User = require("./User");
 const Thought = require("./Thought");

@@ -56,7 +56,7 @@ const ThoughtSchema = new Schema(
     },
   }
 );
-//Gets the length of the reactions array that pertain to the individual thot
+//Gets the length of the reactions array that pertain to the individual thoought
 ThoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
