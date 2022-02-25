@@ -33,6 +33,10 @@ I built this social networking back-end server application by utilizing mongoDB,
 
 The user can install this application on their local maching by following the instructions above. The demo for this program uses Insomnia to execute CRUD requests. To learn how to use and install insomnia click [here](https://insomnia.rest/)
 
+OR
+
+[Watch this walkthrough video](https://drive.google.com/file/d/1WOqCMFK4shXJYLNxpELp4ktPqnRKZDsI/view)
+
 ### User Routes
 
 ![Demo of User routes](assets/userRoutes.gif)  
