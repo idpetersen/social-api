@@ -86,12 +86,12 @@ module.exports = {
       });
   },
   //add reaction to thought
-  addReaction(req, res){
-      Thought.findOneAndUpdate(
-        { _id: req.params.thoughtId },
-        { $push: { reaction: req.body } },
-        { runValidators: true, new: true }
-      )
+  addReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $push: { reaction: req.body } },
+      { runValidators: true, new: true }
+    )
       .populate({
         path: "reactions",
         select: "-__v",
@@ -112,7 +112,7 @@ module.exports = {
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reaction: {reactionId: req.params.reactionId }}},
+      { $pull: { reaction: { reactionId: req.params.reactionId } } },
       { new: true }
     )
       .then((deleteThought) => {

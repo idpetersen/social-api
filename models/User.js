@@ -1,41 +1,46 @@
 //Importing neccessary dependancies
-const { Schema, model, Types } = require('mongoose');
+const { Schema, model, Types } = require("mongoose");
 //This is a model to create a new user
-const UserSchema = new Schema({
+const UserSchema = new Schema(
+  {
     username: {
-        type: String,
-        unique: true,
-        required: true,
-        trim: true
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
     },
     email: {
-        type: String,
-        unique: true,
-        required: true,
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]
+      type: String,
+      unique: true,
+      required: true,
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/],
     },
-    //References the thought model so the user can have more than one thought. 
-    thoughts: [{
+    //References the thought model so the user can have more than one thought.
+    thoughts: [
+      {
         type: Schema.Types.ObjectId,
-        ref: 'Thought'
-    }],
+        ref: "Thought",
+      },
+    ],
     //Self referencing array for friendz
-    friends: [{
+    friends: [
+      {
         type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
-
-},
-{
+        ref: "User",
+      },
+    ],
+  },
+  {
     toJSON: {
-        virtuals: true,
-    }
+      virtuals: true,
+    },
+  }
+);
+
+UserSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
 });
 
-UserSchema.virtual('friendCount').get(function () {
-    return this.friends.length
-});
+const User = model("User", UserSchema);
 
-const User = model('User', UserSchema);
-
-module.exports = User
+module.exports = User;
